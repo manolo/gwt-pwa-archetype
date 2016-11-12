@@ -44,7 +44,7 @@
           <p:PaperMenu ui:field="menu">
             <p:PaperItem>User List</p:PaperItem>
             <p:PaperItem>Videos</p:PaperItem>
-            <p:PaperItem>ToDo Form</p:PaperItem>
+            <p:PaperItem>Todos</p:PaperItem>
           </p:PaperMenu>
 
         </a:AppHeaderLayout>

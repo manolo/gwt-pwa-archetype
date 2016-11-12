@@ -18,13 +18,31 @@
       .view3 paper-button {
          margin-top: 30px;
       }
+      .view3 vaadin-date-picker {
+         margin-right: 15px;
+      }
     </style>
     <p:PaperMaterial elevation="3">
-      <h3>ToDo Form</h3>
-      <p:PaperInput ui:field="title" label="title"></p:PaperInput>
-      <p:PaperTextarea ui:field="descr" label="description"></p:PaperTextarea>
-      <v:VaadinDatePicker ui:field="date" label="date"></v:VaadinDatePicker>
-      <p:PaperButton ui:field="submit" raised="true">Submit</p:PaperButton>
+      <form ui:field="form">
+        <div class="layout horizontal">
+          <v:VaadinDatePicker ui:field="date" label="date" required="true"></v:VaadinDatePicker>
+          <p:PaperInput ui:field="title" label="title" pattern="^.+$" autoValidate="true" required="true" errorMessage="Required"></p:PaperInput>
+        </div>
+        <p:PaperTextarea ui:field="descr" label="description"></p:PaperTextarea>
+        <p:PaperButton ui:field="submit" raised="true">Add</p:PaperButton>
+      </form>
+    </p:PaperMaterial>
+
+    <p:PaperMaterial elevation="2">
+      <h4>TODOs</h4>
+      <v:VaadinGrid ui:field="grid" attributes="selection-mode:multi">
+        <table>
+          <col name="date" width="120" />
+          <col name="title" width="130" />
+          <col name="description" />
+          <thead hidden=""/>
+        </table>
+      </v:VaadinGrid>
     </p:PaperMaterial>
 
     <p:PaperToast ui:field="toast"></p:PaperToast>
