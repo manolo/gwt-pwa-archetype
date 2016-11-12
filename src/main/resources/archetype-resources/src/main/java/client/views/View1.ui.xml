@@ -1,0 +1,38 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:p='urn:import:com.vaadin.polymer.paper.widget'
+             xmlns:a='urn:import:com.vaadin.polymer.app.widget'
+             xmlns:i='urn:import:com.vaadin.polymer.iron.widget'
+             xmlns:v='urn:import:com.vaadin.polymer.vaadin.widget'
+        >
+
+  <ui:style>
+  </ui:style>
+
+  <g:HTMLPanel>
+    <style>
+      vaadin-grid img {
+         width: 40px;
+         height: 40px;
+         border-radius: 50%;
+         position: absolute;
+         top: 4px;
+      }
+    </style>
+
+    <i:IronAjax ui:field="ajax" url="users.json"/>
+
+    <v:VaadinGrid ui:field="grid" addStyleNames="fit">
+      <table>
+         <colgroup>
+            <col name="image" width="80" />
+            <col name="name" width="150" />
+            <col name="last" />
+            <col name="city" />
+            <col name="state" />
+            <col name="country" />
+          </colgroup>
+      </table>
+    </v:VaadinGrid>
+  </g:HTMLPanel>
+</ui:UiBinder>

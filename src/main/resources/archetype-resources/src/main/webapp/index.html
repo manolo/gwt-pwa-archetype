@@ -1,0 +1,164 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+    <title>${projectName}</title>
+    <meta name="description" content="Gwt-Polymer-Elements Demo">
+
+    <link rel="shortcut icon" type="image/x-icon" href="img/${artifactId}-favicon.png">
+
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- See https://goo.gl/qRE0vM -->
+    <meta name="theme-color" content="#00796b">
+
+    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Gwt-Polymer-Elements">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="${projectName}">
+
+    <!-- Homescreen icons -->
+    <link rel="apple-touch-icon" sizes="144x144" href="img/${artifactId}-144x144.png">
+
+    <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="img/${artifactId}-144x144.png">
+    <meta name="msapplication-TileColor" content="#00796b">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!--  Global Styles -->
+    <style>
+      :root {
+        --app-primary-color: white;
+        --app-secondary-color: #00796b;
+        --app-drawer-content-background-color: #fafafa;
+        --app-drawer-content-container: {
+          background-color: red !important;
+        };
+      }
+
+      body {
+        margin: 0 !important;
+        font-family: sans-serif;
+        font-weight: 400;
+      }
+      </style>
+
+      <style>
+      .shell * {
+        transition: opacity 500ms;
+      }
+      .shell {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+      }
+      .shell .left {
+        position: absolute;
+        width: 256px;
+        height: 100%;
+        background: var(--app-drawer-content-background-color);
+      }
+      .shell .right {
+        position: absolute;
+        width: calc(100% - 256px);
+        height: 100%;
+        background: white;
+        margin-left: 256px;
+      }
+
+      .shell .top {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 64px;
+        background: var(--app-secondary-color);
+      }
+
+      .shell .top .text {
+        color: var(--app-primary-color);
+        font-size: 16px;
+        margin-left: 16px;
+      }
+
+      .shell .right .top .text {
+        margin-left: 25px;
+        opacity: 0;
+      }
+
+      .shell .text {
+        overflow: hidden;
+      }
+
+      .shell .text::after {
+        content: "█████████";
+        opacity: 0.3;
+      }
+
+      .shell .left .content .text {
+        font-size: 16px;
+        line-height: 52px;
+        margin-left: 16px;
+        opacity: 0.5;
+      }
+
+      @media only screen and (max-width: 764px) {
+        .shell .left {
+          display: none;
+        }
+        .shell .right {
+          width: 100%;
+          margin-left: 0px;
+        }
+        .shell .right .top .text {
+          margin-left: 25px;
+          opacity: 1;
+        }
+
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="shell">
+      <div class="right">
+        <div class="top">
+          <div class="text"></div>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+      <div class="left">
+        <div class="top">
+          <div class="text"></div>
+        </div>
+        <div id="loading" class="content">
+          <div class="text"></div>
+          <div class="text"></div>
+          <div class="text"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Load service worker only if supported and https
+      if ('serviceWorker' in navigator && /https/.test(window.location.protocol)) {
+        navigator.serviceWorker.register('service-worker.js');
+      }
+    </script>
+
+    <!-- Load Polyfill and GWT after the shell has been rendered and service worker loaded -->
+    <script src="${projectName}/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="${projectName}/${projectName}.nocache.js"></script>
+  </body>
+</html>

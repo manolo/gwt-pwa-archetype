@@ -1,0 +1,14 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<module rename-to="${projectName}">
+    <inherits name="com.google.gwt.user.User"/>
+
+    <inherits name="com.google.gwt.query.Query"/>
+
+    <inherits name="com.vaadin.polymer.Elements"/>
+
+    <entry-point class="${package}.client.Shell"/>
+
+    <collapse-all-properties value="true" />
+</module>

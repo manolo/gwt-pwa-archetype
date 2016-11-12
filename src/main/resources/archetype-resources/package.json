@@ -1,0 +1,10 @@
+{
+  "name": "${artifactId}",
+  "version": "1.0.0",
+  "description": "npm dependencies for ${projectName}",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/acount_name/${artifactId}.git",
+  "devDependencies": {
+    "sw-precache": "^4.2.1"
+  }
+}
