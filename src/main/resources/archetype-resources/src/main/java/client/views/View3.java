@@ -21,19 +21,17 @@ import com.vaadin.polymer.paper.widget.PaperToast;
 import com.vaadin.polymer.vaadin.widget.VaadinDatePicker;
 import com.vaadin.polymer.vaadin.widget.VaadinGrid;
 
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 public class View3 extends Composite {
 
-  @JsType(isNative = true)
-  public interface Todo {
-    @JsProperty String getDate();
-    @JsProperty String getTitle();
-    @JsProperty String getDescription();
-    @JsProperty void setDate(String d);
-    @JsProperty void setTitle(String d);
-    @JsProperty void setDescription(String d);
+  @JsType(isNative = true, namespace=JsPackage.GLOBAL, name="Object")
+  public static class Todo {
+    @JsProperty public String date;
+    @JsProperty public String title;
+    @JsProperty public String description;
   }
 
   interface View3UiBinder extends UiBinder<HTMLPanel, View3> {
@@ -63,10 +61,10 @@ public class View3 extends Composite {
     }
 
     if (title.validate() && descr.validate()) {
-      Todo todo = (Todo) JavaScriptObject.createObject();
-      todo.setDate(date.getValue());
-      todo.setTitle(title.getValue());
-      todo.setDescription(descr.getValue());
+      Todo todo = new Todo();
+      todo.date = date.getValue();
+      todo.title = title.getValue();
+      todo.description = descr.getValue();
       Polymer.apply(grid.getElement(), "push", "items", todo);
       form.reset();
     }
