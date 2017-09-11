@@ -5,6 +5,9 @@
   "license": "Apache-2.0",
   "repository": "https://github.com/acount_name/${artifactId}.git",
   "devDependencies": {
-    "sw-precache": "^4.2.1"
+    "sw-precache": "^5.0.0"
+  },
+  "dependencies": {
+    "gwt-api-generator": "github:vaadin/gwt-api-generator#1.9.3"
   }
 }

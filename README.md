@@ -17,7 +17,7 @@
 - To create a new GWT PWA project run:
 
         $ mvn archetype:generate -DarchetypeArtifactId=gwt-pwa-archetype \
-                       -DarchetypeVersion=1.0-SNAPSHOT \
+                       -DarchetypeVersion=1.9.3-SNAPSHOT \
                        -DarchetypeGroupId=com.vaadin.polymer \
                        -DgroupId=com.example \
                        -DartifactId=pwa-app \
